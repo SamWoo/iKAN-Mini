@@ -1,0 +1,8 @@
+<!--components/pop-menu.wxml-->
+<view class="pop-menu" wx:if="{{visible}}" bind:tap="hideMenu">
+  <view class="menu-content {{menuDirectionClass}}" catchtap>
+    <view class="menu-item" wx:for="{{options}}" wx:key="index" data-index="{{index}}" bind:tap="handleOptionClick">
+      {{item.label}}
+    </view>
+  </view>
+</view>

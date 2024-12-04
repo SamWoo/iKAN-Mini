@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4460482 */
+  src: url('//at.alicdn.com/t/c/font_4460482_tgk8ko768ei.woff2?t=1733107518399') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4460482_tgk8ko768ei.woff?t=1733107518399') format('woff'),
+       url('//at.alicdn.com/t/c/font_4460482_tgk8ko768ei.ttf?t=1733107518399') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jiu:before {
+  content: "\e604";
+}
+
+.icon-pingmuliangdu:before {
+  content: "\e6a5";
+}
+
+.icon-quanping:before {
+  content: "\e660";
+}
+
+.icon-speed:before {
+  content: "\e674";
+}
+
+.icon-anthologies:before {
+  content: "\e66b";
+}
+
+.icon-rewind:before {
+  content: "\e6be";
+}
+
+.icon-close:before {
+  content: "\e651";
+}
+
+.icon-playlist:before {
+  content: "\e716";
+}
+
+.icon-pre-song:before {
+  content: "\e698";
+}
+
+.icon-next-song:before {
+  content: "\e6a1";
+}
+
+.icon-random:before {
+  content: "\e797";
+}
+
+.icon-play:before {
+  content: "\e622";
+}
+
+.icon-pre:before {
+  content: "\e62c";
+}
+
+.icon-next:before {
+  content: "\e62d";
+}
+
+.icon-pause:before {
+  content: "\e62e";
+}
+
+.icon-fav:before {
+  content: "\e645";
+}
+
+.icon-download:before {
+  content: "\e61b";
+}
+
+.icon-arrow-left:before {
+  content: "\e619";
+}
+
+.icon-music:before {
+  content: "\e667";
+}
+
+.icon-arrow-right:before {
+  content: "\e62b";
+}
+
+.icon-info:before {
+  content: "\e654";
+}
+
+.icon-delete:before {
+  content: "\e6a0";
+}
+
+.icon-setting:before {
+  content: "\e61c";
+}
+
+.icon-favourite:before {
+  content: "\e613";
+}
+
+.icon-history:before {
+  content: "\e621";
+}
+
+.icon-resource:before {
+  content: "\e635";
+}
+
+.icon-tv:before {
+  content: "\e606";
+}
+
+.icon-movie:before {
+  content: "\e607";
+}
+
+.icon-user:before {
+  content: "\e608";
+}
+
+.icon-top:before {
+  content: "\e600";
+}
+
+.icon-like:before {
+  content: "\e67e";
+}

@@ -1,0 +1,22 @@
+/* pages/favourite/favourite.wxss */
+
+.like{
+  display: inline-block;
+  /* width: 42rpx; */
+  /* height: 42rpx; */
+  margin-right:20rpx ;
+  font-size: 80rpx;
+  color: red;
+}
+
+.empty {
+  width: 100%;
+  /* background-color: aqua; */
+  /* 以下设置文字垂直居中显示 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 26rpx;
+  color: rgb(182, 176, 176);
+}

@@ -1,0 +1,60 @@
+<!--pages/playMusic/playMusic.wxml-->
+<image class="bg" src="/static/images/bg.png"></image>
+<view class="iconfont icon-arrow-left" style="--themeColor--:{{navBg}}" bind:tap="onBack"></view>
+<view class="content-play">
+  <!-- 显示音乐信息 -->
+  <view class="content-play-info">
+    <view class="title">{{play.title}}</view>
+    <view class="singer">— {{play.singer}} —</view>
+  </view>
+  <!-- 显示专辑封面 -->
+  <view class="content-play-cover">
+    <image class="mi-head" src="/static/images/mi.png" mode="heightFix" />
+    <view class="circle" style="animation-play-state:{{state}}"></view>
+    <image class="cover-image" src="{{play.coverImgUrl}}" style="animation-play-state:{{state}}" mode="aspectFill"></image>
+  </view>
+  <!-- 显示播放进度 -->
+  <view class="content-play-progress">
+    <text>{{play.currentTime}}</text>
+    <view>
+      <!-- activeColor已选择的不生效 -->
+      <slider bindchange="sliderChange" activeColor="#d33a31" block-size="12" backgroundColor="#ccc" value="{{play.percent}}"></slider>
+    </view>
+    <text>{{play.duration}}</text>
+  </view>
+  <!-- 功能区 -->
+  <view class="other-box">
+    <view class="other">
+      <view class="iconfont icon-download" bind:tap="onDownload"></view>
+      <view class="iconfont icon-fav" bind:tap="onFav"></view>
+      <view class="iconfont icon-random" bind:tap="onRandomPlay"></view>
+      <view class="iconfont icon-playlist" bind:tap="onPlayList"></view>
+    </view>
+  </view>
+  <!-- 控件区 -->
+  <view class="controls-box">
+    <view class="controls">
+      <view class="iconfont icon-pre-song" bind:tap="onPre"></view>
+      <view class="{{state=='paused'?'iconfont icon-pause':'iconfont icon-play'}}" bind:tap="{{state=='paused'?'onPlay':'onPause'}}"></view>
+      <view class="iconfont icon-next-song" bind:tap="onNext"></view>
+    </view>
+  </view>
+</view>
+<!-- 音频列表 -->
+<view wx:if="{{popupVisible}}" class="popup {{popupVisible?'popup-show':''}}">
+  <view class="playlist-title">
+    <view class="iconfont icon-playlist" style="color: red;"></view>
+    <text> 播放列表</text>
+    <view class="iconfont icon-close" style="color: red;" bind:tap="hidePopup"></view>
+  </view>
+  <scroll-view scroll-y="true" style="height: 100%;width: 100%;" scroll-into-view="{{songId}}">
+    <block wx:for="{{ playlist }}" wx:key="index">
+      <view class="playlist-item" style="--themeColor--:{{navBg}}" bind:tap="changeSong" data-index="{{index}}" id="{{'songid'+index}}">
+        <image class="music-icon" src="{{currentIndex==index?'/static/images/wave.gif':'/static/images/music_icon.png'}}" mode="aspectFill" />
+        <view class="music-name">
+          {{item.name}}
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

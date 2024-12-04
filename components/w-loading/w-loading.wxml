@@ -1,0 +1,10 @@
+<!--components/w-loading/w-loading.wxml-->
+<view class="box">
+  <view class="loader">
+    <view class="l-item"></view>
+    <view class="l-item"></view>
+    <view class="l-item"></view>
+    <view class="l-item"></view>
+  </view>
+  <view>{{msg}}</view>
+</view>

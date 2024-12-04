@@ -1,0 +1,28 @@
+<!--pages/searchMusic/searchMusic.wxml-->
+<view class="container">
+  <navigation-bar class="nav-bar" title="{{title}}" color="#fff" background="{{navBg}}"></navigation-bar>
+  <!-- loading控件 -->
+  <view wx:if="{{loading}}" class="loading" style="height: {{height}}px;background-color: rgba(228, 228, 228, 0.5);">
+    <w-loading msg="{{tips}}" />
+  </view>
+  <view wx:else class="main">
+    <block wx:if="{{isEmpty}}">
+      <view class="empty" style="height:{{height}}px">
+        <image src="/static/images/empty.png" style="width: 128rpx;height: 128rpx;margin-bottom: 10rpx;" mode="aspectFit" />
+        未找到相关数据
+      </view>
+    </block>
+    <block wx:else>
+      <!-- 音乐列表 -->
+      <scroll-view scroll-y show-scrollbar="{{false}}" style="height: {{height}}px;" bindscrolltolower="loadMore" lower-threshold="300">
+        <view class="music-item" wx:for="{{songs}}" wx:key="unique" style="--themeColor--:{{navBg}}" bind:tap="playMusic" data-index="{{index}}">
+          <image class="music-icon" src="/static/images/music_icon.png" mode="aspectFill" />
+          <view class="music-name">
+            {{item.name}}
+          </view>
+          <view class="iconfont icon-arrow-right" style="--themeColor--:{{navBg}}"></view>
+        </view>
+      </scroll-view>
+    </block>
+  </view>
+</view>

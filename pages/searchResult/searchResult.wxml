@@ -1,0 +1,32 @@
+<!--pages/searchResult/searchResult.wxml-->
+<view class="container">
+  <navigation-bar class="nav-bar" title="{{title}}" back="{{true}}" background="{{navBg}}" color="#fff"></navigation-bar>
+  <!-- loading控件 -->
+  <view wx:if="{{loading}}" class="loading" style="height: {{height}}px;background-color: rgba(228, 228, 228, 0.5);">
+    <w-loading msg="{{tips}}" />
+  </view>
+  <view wx:else class="main">
+    <block wx:if="{{isEmpty}}">
+      <view class="empty" style="height:{{height}}px">
+        <image src="/static/images/empty.png" style="width: 128rpx;height: 128rpx;margin-bottom: 10rpx;" mode="aspectFit" />
+        未找到相关数据
+      </view>
+    </block>
+    <block wx:else>
+      <!-- 视频展示区 -->
+      <scroll-view style="height:{{height}}px" type="custom" scroll-y enhanced show-scrollbar="false" bindscrolltolower="loadMore" lower-threshold="20">
+        <grid-view type="aligned" cross-axis-count="{{crossAxisCount}}" main-axis-gap="{{mainAxisGap}}" cross-axis-gap="{{crossAxisGap}}">
+          <view class="video-item" wx:for="{{videoList}}" wx:key="unique" bind:tap="navToPlay" data-id="{{item.vod_id}}">
+            <view class="remarks">{{item.vod_remarks?item.vod_remarks:'HD'}}</view>
+            <image-loader class="video-img" src='{{item.vod_pic}}' placeholder="{{imgPlaceHolder}}" error="{{imgError}}" mode="{{mode}}" data-index="{{index}}" bind:success="bindSuccess" bind:fail="bindFail"></image-loader>
+            <!-- <image class="video-img" src="{{item.vod_pic}}" mode="aspectFill" binderror="loadError" data-index="{{index}}" /> -->
+            <text class="vod-name">{{item.vod_name}}</text>
+          </view>
+        </grid-view>
+        <view class='data-loading' hidden='{{hidden}}'>
+          数据加载中...
+        </view>
+      </scroll-view>
+    </block>
+  </view>
+</view>

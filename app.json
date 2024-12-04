@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/music/music",
+    "pages/video/video",
+    "pages/search/search",
+    "pages/searchResult/searchResult",
+    "pages/my/my",
+    "pages/favourite/favourite",
+    "pages/history/history",
+    "pages/setting/setting",
+    "pages/resource/resource",
+    "pages/live/live",
+    "pages/guide/guide",
+    "pages/playMusic/playMusic",
+    "pages/searchMusic/searchMusic"
+  ],
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#25a34b",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/static/images/movie.png",
+        "selectedIconPath": "/static/images/movie_selected.png"
+      },
+      {
+        "pagePath": "pages/music/music",
+        "iconPath": "/static/images/music.png",
+        "selectedIconPath": "/static/images/music_selected.png"
+      },
+      {
+        "pagePath": "pages/live/live",
+        "iconPath": "/static/images/tv.png",
+        "selectedIconPath": "/static/images/tv_selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "/static/images/my.png",
+        "selectedIconPath": "/static/images/my_selected.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "navigation-bar": "/components/navigation-bar/navigation-bar"
+  },
+  "networkTimeout": {
+    "request": 20000
+  },
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "您的授权将允许访问本地文件系统!"
+    }
+  },
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ]
+}

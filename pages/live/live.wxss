@@ -1,0 +1,117 @@
+/* pages/live/live.wxss */
+.display {
+  width: 100%;
+  height: 450rpx;
+  /* position: relative; */
+  /* background-color: aqua; */
+}
+.scroll-nav {
+  height: 80rpx;
+  margin-bottom: 4rpx;
+  white-space: nowrap;
+  overflow-x: auto;
+  background-color: rgba(213, 231, 238, 0.849);
+}
+.nav-item {
+  display: inline-block;
+  padding: 0 8px;
+  height: 72rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  /* background-color: blueviolet; */
+}
+.nav-item.active {
+  color: var(--themeColor--);
+  font-size: 32rpx;
+  font-weight: bold;
+  border-bottom: 8rpx solid var(--themeColor--);
+}
+
+.channel{
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+}
+
+.nav-left{
+  width: 30vw;
+  height: inherit;
+  /* background-color: coral; */
+  border-right: 1rpx solid rgb(211, 209, 209);
+}
+
+.nav-left-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(235, 235, 235);
+  height: 88rpx;   
+  border-bottom: 1rpx solid #fff; 
+}  
+
+.left-item-active{  
+  border-left: 8rpx solid var(--themeColor--);
+  background: rgb(255, 255, 255);
+} 
+
+.nav-left-item-txt {
+  color: rgba(51, 51, 51, 1);
+  line-height: 70rpx;   
+  padding: 16rpx;     
+  font-size: 26rpx; 
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.left-txt-active {
+  color: var(--themeColor--);
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.nav-right{
+  width: 70vw;
+  height: inherit;
+  /* padding-top: 4px; */
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #fff;
+}
+
+.nav-right-item {
+  display: inline-block;
+  font-size: 26rpx;
+  margin-right: 4px;
+  /* margin-bottom: 4rpx; */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  overflow: hidden;
+  color: rgb(114, 113, 113);
+  background: rgb(235, 235, 235);
+}
+
+/* 一行展示4个，前三个元素之间的margin-right 为4px，最后一个元素margin-right 设置为 0px */
+.nav-right-item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.nav-right-item-txt {
+  width: 240rpx;
+  color: rgba(51, 51, 51, 1);
+  line-height: 64rpx;   
+  padding: 16rpx;     
+  font-size: 26rpx; 
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.right-txt-active {
+  color: var(--themeColor--);
+  font-weight: 700;
+}

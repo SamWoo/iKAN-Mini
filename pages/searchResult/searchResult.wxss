@@ -1,0 +1,67 @@
+/* pages/searchResult/searchResult.wxss */
+.empty {
+  width: 100%;
+  /* background-color: aqua; */
+  /* 以下设置文字垂直居中显示 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: rgb(182, 176, 176);
+}
+
+.video-item {
+  position: relative;
+  height: 380rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+  text-align: center;
+  align-items: center;
+  white-space: nowrap;
+  /* overflow: clip; */
+}
+
+.remarks {
+  position: absolute;
+  height: 32rpx;
+  max-width: 70%;
+  right: 0rpx;
+  font-size: 24rpx;
+  padding: 8rpx 12rpx;
+  border-top-right-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  color: #fff;
+  overflow: hidden;
+  background-color: rgb(189, 164, 54, 1);
+  z-index: 999;
+  /* background-color: #DAA520; */
+}
+
+.video-img {
+  height: 90%;
+  width: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+  border: 1rpx solid rgb(192, 185, 185);
+  box-shadow: 0 0 2rpx rgba(0, 0, 0, 0.5);
+  /* background-color: aquamarine; */
+}
+
+.vod-name {
+  /* height: 10%; */
+  width: 200rpx;
+  padding: 10rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  /* background-color: #ff4400; */
+}
+
+.data-loading {
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #eee;
+  text-align: center;
+  font-size: 14px;
+}

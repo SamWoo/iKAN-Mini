@@ -1,0 +1,148 @@
+<!--pages/video/video.wxml-->
+<view class="container">
+  <navigation-bar 
+    class="nav-bar" 
+    title="" 
+    background="{{navBg}}" 
+    color="#fff">
+    </navigation-bar>
+  <view>
+    <video 
+      id="myVideo" 
+      class="play-video" 
+      src="{{vod_play_url}}" 
+      title="{{vod_name}}" 
+      controls="{{controls}}" 
+      autoplay="{{autoPlay}}" 
+      show-screen-lock-button="{{showScreenLockBtn}}" 
+      show-snapshot-button="{{showSnapshotBtn}}" 
+      show-mute-btn="{{showMuteBtn}}" 
+      enable-play-gesture="{{enablePlayGesture}}"
+      enable-progress-gesture="{{enableProgressGesture}}"
+      show-casting-button="{{showCastingBtn}}" 
+      initial-time="{{initialTime}}" 
+      poster="" 
+      object-fit="{{objectFit}}" 
+      enable-auto-rotation="{{enableAutoRotation}}"
+      show-center-play-btn="{{showCenterPlayBtn}}" 
+      play-btn-position="{{playBtnPosition}}" 
+      vslide-gesture 
+      show-bottom-progress="{{false}}" 
+      bindfullscreenchange="fullScreenChange" 
+      bindtimeupdate="timeUpdate" 
+      bindloadedmetadata="loadedMetaData" bindended="playNext" 
+      bind:tap="tapScreen">
+      <!-- 全屏状态下右侧显示剧集 -->
+      <cover-view 
+        class="button-cover" 
+        style="display: {{isFull&&isTap?'block':'none'}};">
+        <view 
+          class="iconfont icon-anthologies" 
+          style="font-size:{{direction=='vertical'?'40':'32'}}px" catch:tap="showPopup">
+        </view>
+        <view 
+          class="iconfont icon-speed" 
+          style="font-size:{{direction=='vertical'?'40':'32'}}px" catch:tap="showSpeedMenu">
+        </view>
+      </cover-view>
+      <!-- 剧集信息显示区 -->
+      <view 
+        class="anthologies-box" 
+        style="display: {{isFull&&showPopup?'block':'none'}};" 
+        animation="{{animation}}">
+        <view 
+          class="anth-title">
+          <text>剧集</text>
+          <view 
+            class="iconfont icon-close" 
+            catch:tap="hidePopup">
+          </view>
+        </view>
+        <scroll-view 
+          scroll-y="true" 
+          style="height: {{popupHeight}}px;">
+          <view 
+            wx:for="{{playUrlList}}" 
+            wx:key="unqiue" 
+            class="list-item {{direction=='vertical'?'item-vertical':'item-horizontal'}} {{currentIndex==index?'selected':''}}" 
+            catch:tap="changeVideo" 
+            data-index="{{index}}">
+            {{item.name}}
+          </view>
+        </scroll-view>
+      </view>
+      <!-- 播放速率menu显示区 -->
+      <pop-menu 
+        visible="{{isFull&&isMenuVisible}}" 
+        options="{{menuOptions}}" 
+        direction="{{menuDirection}}" bind:optiontap="handleOptionTap">
+      </pop-menu>
+    </video>
+    <!-- 公告 -->
+    <view class="warn">
+      <image src="/static/images/horn.gif" mode="" />
+      <view class="marquee">
+        <view class="content">
+          <text>{{warn_content}}</text> <text style="display: inline-block; width: 1em;"></text>
+        </view>
+      </view>
+    </view>
+    <!-- 内容页 -->
+    <view class="main">
+      <scroll-view id="myScroll" style="height:{{height}}px" scroll-y="true" scroll-top="{{topNum}}">
+        <!-- 剧名 -->
+        <view class="vod-name">
+          <view class="box">
+            <view class="title">{{vod_name}}</view>
+            <view class="diver" style="--themeColor--:{{navBg}}"></view>
+            <view class="sub-title">
+              {{vod_year?vod_year:"未知"}} / {{vod_area?vod_area:"未知"}} / {{vod_class?vod_class:"未知"}} / {{vod_lang?vod_lang:"未知"}}
+            </view>
+          </view>
+          <view class="icon iconfont icon-like" style="color: {{!isLike?'#e0e0e0':'red'}};" bind:tap="addLike"></view>
+        </view>
+        <!-- 剧集 -->
+        <view class="box box-shadow">
+          <view class="title">剧集</view>
+          <view class="diver" style="--themeColor--:{{navBg}}"></view>
+          <view class="anth-wrapper">
+            <view 
+              class="anthologies " 
+              style="width: {{itemWidth}}rpx;" 
+              wx:for="{{playUrlList}}" 
+              wx:key="unqiue" 
+              bind:tap="changeVideo" 
+              data-index="{{index}}">
+              <view 
+                class="anth-item {{currentIndex==index?'active':''}}" 
+                style="--themeColor--:{{navBg}}">
+                  {{item.name}}
+                </view>
+            </view>
+          </view>
+        </view>
+        <!-- 简介 -->
+        <view class="box box-shadow">
+          <view class="title">简介</view>
+          <view class="diver" style="--themeColor--:{{navBg}}"></view>
+          <view class="content"><text>地区：</text>{{vod_area?vod_area:'未知'}}</view>
+          <view class="content"><text>年份：</text>{{vod_year?vod_year:"未知"}}</view>
+          <view class="content"><text>分类：</text>{{vod_class?vod_class:"未知"}}</view>
+          <view class="content"><text>导演：</text>{{vod_director?vod_director:"未知"}}</view>
+          <view class="content"><text>演员：</text>{{vod_actor?vod_actor:"未知"}}</view>
+          <view class="content"><text>发布：</text>{{vod_time?vod_time:"未知"}}</view>
+          <view class="content">
+            <text>剧情：</text>
+            <rich-text nodes="{{vod_content?vod_content:'未知'}}" />
+          </view>
+          <view class="content"></view>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 返回顶部 -->
+    <view class="float-btn" style="--themeColor--:{{navBg}}" bind:tap="scrollTop">
+      <view class="iconfont icon-top" style="font-size: 80rpx;"></view>
+    </view>
+  </view>
+
+</view>

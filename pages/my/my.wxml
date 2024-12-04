@@ -1,0 +1,74 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <navigation-bar title="{{title}}" color="#fff" background="{{navBg}}" back="{{false}}"></navigation-bar>
+  <view class="header" style="background-color: {{navBg}};">
+    <!-- 图像 -->
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="widthFix" bind:tap="onTapUserInfo" />
+    <!-- 昵称 -->
+    <view class="user">
+      <block wx:if="{{isLogin}}">
+        <text class="nickname">昵称：{{userInfo.nickname}}</text>
+        <text class="signature">签名：{{userInfo.signature}}</text>
+      </block>
+      <block wx:else>
+        <view class="login" bind:tap="login">请先登录</view>
+      </block>
+    </view>
+    <!-- vip -->
+    <image class="vip" src="/static/images/vip.png" mode="widthFix" bind:longpress="showAllTab"/>
+    <!-- <view class="cer" style="background-color: {{navBg}};">已认证</view> -->
+  </view>
+  <view class="main">
+    <view class="list-item" bind:tap="navTo" data-path="history">
+      <view class="iconfont icon-history" style="--themeColor--:{{navBg}}"></view>
+      <text class="item-text">浏览历史</text>
+      <view class="iconfont icon-arrow-right" style="--themeColor--:{{navBg}}"></view>
+    </view>
+    <view class="list-item" bind:tap="navTo" data-path="favourite">
+      <view class="iconfont icon-favourite" style="--themeColor--:{{navBg}}"></view>
+      <text class="item-text">我的收藏</text>
+      <view class="iconfont icon-arrow-right" style="--themeColor--:{{navBg}}"></view>
+    </view>
+    <view class="list-item" bind:tap="navTo" data-path="resource">
+      <view class="iconfont icon-resource" style="--themeColor--:{{navBg}}"></view>
+      <text class="item-text">影视资源</text>
+      <view class="iconfont icon-arrow-right" style="--themeColor--:{{navBg}}"></view>
+    </view>
+    <view class="list-item" bind:tap="navTo" data-path="setting">
+      <view class="iconfont icon-setting" style="--themeColor--:{{navBg}}"></view>
+      <text class="item-text">个性设置</text>
+      <view class="iconfont icon-arrow-right" style="--themeColor--:{{navBg}}"></view>
+    </view>
+    <view class="list-item" style="display:'';" bind:tap="navTo" data-path="guide">
+      <view class="iconfont icon-info" style="--themeColor--:{{navBg}}"></view>
+      <text class="item-text">使用说明</text>
+      <view class="iconfont icon-arrow-right" style="--themeColor--:{{navBg}}"></view>
+    </view>
+  </view>
+</view>
+<!-- 弹窗内容 -->
+<view class="popup-mask" wx:if="{{showPopup}}">
+  <view class="popup-container">
+    <view class="popup-header">
+      <text class="popup-title">修改用户信息</text>
+    </view>
+    <view class="popup-body">
+      <view class="form-item">
+        <text class="label">用户图像:</text>
+        <image class="popup-img" src="{{userInfo.avatarUrl}}" mode="widthFix" bindtap="bindAvatarTap"></image>
+      </view>
+      <view class="form-item">
+        <text class="label">用户昵称:</text>
+        <input class="name-box" type="text" value="{{userInfo.nickname}}" placeholder="请输入昵称" bindinput="bindNicknameInput" />
+      </view>
+      <view>
+        <text class="label" style="margin-bottom: 10rpx;margin-left: 8rpx;">个性签名:</text>
+        <textarea class="signature-box" value="{{userInfo.signature}}" placeholder="请输入个性签名" adjust-position="{{true}}" bindinput="bindSignatureInput" />
+      </view>
+      <view class="popup-footer">
+        <button style="width: 45%;background-color: rgb(107, 171, 214);color: #fff;" bindtap="bindCancelTap">取消</button>
+        <button style="width:45%" bindtap="bindConfirmTap" type="primary">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

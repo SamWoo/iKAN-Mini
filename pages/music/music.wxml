@@ -1,0 +1,39 @@
+<!--pages/music/music.wxml-->
+<view class="container">
+  <navigation-bar class="nav-bar" title="{{title}}" back="{{false}}" color="#fff" background="{{navBg}}"></navigation-bar>
+  <view class="main" style="height:{{height}}px">
+    <!-- 搜索区 -->
+    <view class="search-row" style="--themeColor--:{{navBg}}">
+      <icon class="search-icon" type='search'></icon>
+      <input value="{{inputValue}}" placeholder="搜索海量音乐资源" confirm-type="search" bindinput="handleInput" bindconfirm="handleSearch" />
+      <button bindtap="handleSearch" type="primary" class="button-search" hidden="{{!isFocus}}">搜索</button>
+    </view>
+    <!-- loading控件 -->
+    <block wx:if="{{loading}}">
+      <view class="loading" style="height: {{sHeight}}px;background-color: rgba(228, 228, 228, 0.5);">
+        <w-loading msg="{{tips}}" />
+      </view>
+    </block>
+    <block wx:else>
+      <!-- 音乐列表 -->
+      <scroll-view scroll-y show-scrollbar="{{false}}" style="height: {{sHeight}}px;" bindscrolltolower="loadMore" lower-threshold="300">
+        <block wx:if="{{!songs.length}}">
+          <!-- 空数据 -->
+          <view class="empty" style="height: {{sHeight}}px;">
+            <image src="/static/images/empty.png" mode="aspectFit" />
+            暂无数据
+          </view>
+        </block>
+        <block wx:else>
+          <view class="music-item" wx:for="{{songs}}" wx:key="unique" style="--themeColor--:{{navBg}}" bind:tap="playMusic" data-index="{{index}}">
+            <image class="music-icon" src="{{currentIndex==index?'/static/images/wave.gif':'/static/images/music_icon.png'}}" mode="aspectFill" />
+            <view class="music-name">
+              {{item.name}}
+            </view>
+            <view class="iconfont icon-arrow-right" style="--themeColor--:{{navBg}}"></view>
+          </view>
+        </block>
+      </scroll-view>
+    </block>
+  </view>
+</view>

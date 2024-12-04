@@ -1,0 +1,37 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <navigation-bar class="nav-bar" title="{{title}}" color="#fff" background="{{navBg}}"></navigation-bar>
+  <view class="main">
+    <view class="search-row" style="--themeColor--:{{navBg}}">
+      <icon class="search-icon" type='search'></icon>
+      <input value="{{inputValue}}" placeholder="搜索海量影视资源" confirm-type="search" bindinput="handleInput" bindconfirm="handleSearch" />
+      <button bindtap="handleSearch" type="primary" class="button-search" hidden="{{!isFocus}}">搜索</button>
+    </view>
+
+    <!-- 搜索记录 -->
+    <view class="record">
+      <view class="record-title">
+        <view class="iconfont icon-history" style="--themeColor--:{{navBg}}"></view>
+        <text>搜索记录</text>
+      </view>
+      <view class="iconfont icon-delete" style="--themeColor--:{{navBg}};font-size: 52rpx;" bind:tap="deleteAll"></view>
+    </view>
+    <view class="diver" style="--themeColor--:{{navBg}}"></view>
+
+    <block wx:if="{{isEmpty}}">
+      <view class="empty" style="height: {{height}}px;">
+        <image src="/static/images/empty.png" style="width: 128rpx;height: 128rpx;margin-bottom: 10rpx;" mode="aspectFit" />
+        暂无搜索记录
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="search_content">
+        <view class="search_item" wx:for="{{records}}" wx:key="index" style="background-color:{{item.color}} ">
+          <text data-item="{{item.text}}" bind:tap="clickItem">{{item.text}}</text>
+          <view class="iconfont icon-close" bind:tap="delItem" data-index="{{index}}"></view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

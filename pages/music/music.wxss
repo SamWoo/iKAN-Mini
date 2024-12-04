@@ -1,0 +1,32 @@
+/* pages/music/music.wxss */
+/* .music-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 8rpx;
+  margin: 10rpx 0rpx;
+  border: 1rpx dashed var(--themeColor--);
+  border-radius: 8rpx;
+  font-size: 30rpx;
+}
+
+.music-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+}
+
+.music-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 30rpx;
+}
+
+.icon-arrow-right {
+  position: absolute;
+  margin: auto 8rpx;
+  color: var(--themeColor--);
+  right: 0rpx;
+  font-size: 32rpx
+} */

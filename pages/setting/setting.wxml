@@ -1,0 +1,8 @@
+<!--pages/setting/setting.wxml-->
+<view class="container">
+<navigation-bar title="{{title}}" color="#fff" background="{{navBg}}" back="{{true}}"></navigation-bar>
+<view class="main">
+  <view class="color-view" bind:tap="showColorPannel">更改主题色</view>
+  <color-picker class="color-picker" bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" />
+</view>
+</view>

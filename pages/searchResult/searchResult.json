@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "w-loading": "/components/w-loading/w-loading",
+    "image-loader":"/components/image-loader/image-loader"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "search-input": "/components/search-input/search-input",
+    "w-loading": "/components/w-loading/w-loading",
+    "image-loader":"/components/image-loader/image-loader"
+  },
+  "navigationBarTitleText": "iKan"
+}

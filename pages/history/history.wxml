@@ -1,0 +1,30 @@
+<!--pages/history/history.wxml-->
+<view class="container">
+  <navigation-bar class="nav-bar" title="{{title}}" color="#fff" background="{{navBg}}" back="{{true}}"></navigation-bar>
+  <view class="main">
+    <view class="empty" style="height: {{height}}px;display: {{isEmpty?'flex':'none'}};">
+      <image src="/static/images/empty.png" style="width: 128rpx;height: 128rpx;margin-bottom: 10rpx;" mode="aspectFit" />
+      暂无数据!!
+    </view>
+    <view style="display: {{isEmpty?'none':'flex'}};">
+      <recycle-view height="{{height}}" batch="{{batchSetRecycleData}}" id="recycleId" bindscrolltolower="scrolltolower">
+        <recycle-item wx:for="{{videoList}}" wx:key="id" data-index="{{index}}">
+          <view class="re-item">
+            <image class="item-pic" src="{{item.vod_pic}}"></image>
+            <view class="item-desc" bind:tap="bindTap" data-index="{{index}}" bindlongpress="handleLongPress">
+              <view class="item-name">{{item.vod_name}}
+              </view>
+              <view class="item-content">类型：{{item.vod_year?item.vod_year:"未知"}} / {{item.vod_area?item.vod_area:"未知"}} / {{item.vod_class?item.vod_class:"未知"}} / {{item.vod_lang?item.vod_lang:"未知"}}</view>
+              <view class="item-content">播放至：第{{item.play_index + 1}}集 / {{item.play_percent}}%</view>
+            </view>
+          </view>
+        </recycle-item>
+        <!-- <view slot="after">加载中...</view> -->
+      </recycle-view>
+    </view>
+  </view>
+  <!-- 清空浏览记录 -->
+  <view class="float-btn" bind:tap="delAll">
+    <view class=" iconfont icon-delete" style="font-size: 56rpx;color: {{navBg}};"></view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<!--pages/live/live.wxml-->
+<view class="container" style="background-color: #fff;">
+  <!-- 导航区 -->
+  <navigation-bar class="nav-bar" title="{{title}}" background="{{navBg}}" back="{{false}}" color="#fff"></navigation-bar>
+  <!-- 视频区 -->
+  <video class="display" id='myVideo' src="{{live_url}}" title="{{channel_name}}" controls="{{controls}}" autoplay="{{autoPlay}}" show-screen-lock-button="{{showScreenLockBtn}}" show-snapshot-button="{{showSnapshotBtn}}" show-mute-btn="{{showMuteBtn}}" enable-play-gesture="{{enablePlayGesture}}" enable-progress-gesture="{{enableProgressGesture}}" show-casting-button="{{showCastingBtn}}" object-fit="{{objectFit}}" show-bottom-progress="{{false}}" play-btn-position="{{playBtnPosition}}" bindfullscreenchange="fullScreenChange" />
+  <!-- 分类导航区 -->
+  <scroll-view scroll-x="true" class="scroll-nav" show-scrollbar="{{false}}" scroll-with-animation="true">
+    <view class="nav-item {{currentActiveTab == index ? 'active':''}}" style="--themeColor--:{{navBg}}" wx:for="{{tabList}}" wx:key="unique" bindtap="changeTab" data-index="{{index}}">{{item}}</view>
+  </scroll-view>
+  <!-- 频道区 -->
+  <view class="channel" style="height: {{height}}px;">
+    <!-- 左侧导航 -->
+    <scroll-view scroll-y class="nav-left">
+      <view wx:for="{{channelList}}" wx:key="unique" class="nav-left-item {{currentLeftIndex == index ? 'left-item-active' : ''}}" style="--themeColor--:{{navBg}}" bindtap="bindLeftItemTap" data-index="{{index}}">
+        <text class="nav-left-item-txt {{currentLeftIndex == index ? 'left-txt-active' : ''}}" style="--themeColor--:{{navBg}}">{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <!-- 右侧导航 -->
+    <scroll-view scroll-y scroll-top="{{scrollTop}}" class="nav-right">
+      <view wx:for="{{channelList[currentLeftIndex].urls}}" wx:key="unique" class="nav-right-item" style="width: {{rightItemWidth}}px;" bindtap="bindRightItemTap" data-index="{{index}}">
+        <text class="nav-right-item-txt {{currentRightIndex == index ? 'right-txt-active' : ''}}" style="--themeColor--:{{navBg}}">线路{{index+1}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

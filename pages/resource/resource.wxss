@@ -1,0 +1,66 @@
+/* pages/resource/resource.wxss */
+.radio-item {
+  display: flex;
+  flex-direction: row;
+  /* background-color: aqua; */
+  border-radius: 10rpx;
+  border: 1rpx solid rgb(198, 196, 199);
+  margin-bottom: 10rpx;
+  padding: 16rpx 12rpx;
+  font-size: 32rpx;
+  align-items: center;
+}
+
+.radio-value {
+  margin-left: 16rpx;
+  font-weight: lighter;
+}
+
+/* 设置右下角按钮的样式 */
+.fixed-float-btn {
+  width: 64rpx;
+  height: 64rpx;
+  text-align: center;
+  line-height: 64rpx;
+  position: fixed;
+  right: 30rpx;
+  border-radius: 50%;
+  font-size: 48rpx;
+  padding: 10rpx;
+  box-shadow: 0 0rpx 16rpx rgba(0, 0, 0, 0.5);
+}
+
+.del-btn{
+  bottom: 160rpx;
+  color: var(--themeColor);
+}
+
+.add-btn{
+  bottom: 60rpx;
+  color: white;
+}
+
+.pop-title {
+  text-align: center;
+  font-size: 40rpx;
+  padding-top: 20rpx;
+}
+
+.line {
+  display: flex;
+  height: 64rpx;
+  margin: 10px;
+  border: 1rpx solid rgb(209, 207, 207);
+  border-radius: 8rpx;
+  padding: 8rpx;
+  align-items: center;
+}
+.label {
+  width: 120rpx;
+}
+
+.line-input {
+  height: 56rpx;
+  width: 600rpx;
+  /* background-color: aqua; */
+}

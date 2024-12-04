@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <navigation-bar class="nav-bar" title="{{title}}" back="{{false}}" color="#fff" background="{{navBg}}"></navigation-bar>
+  <view class="main" style="height:{{height}}px">
+    <!-- 搜索区 -->
+    <search-input class="search"></search-input>
+    <!-- 分类导航区 -->
+    <scroll-view scroll-x="true" class="scroll-nav" show-scrollbar="{{showScrollbar}}" scroll-with-animation="true" scroll-into-view="{{scrollIntoViewId}}">
+      <view class="nav-item {{currentActiveTab == index ? 'active':''}}" style="--themeColor--:{{navBg}}" wx:for="{{tabList}}" wx:key="index" bindtap="changeTab" data-index="{{index}}" id="{{'tabItem' + index}}" data-td="{{item.type_id}}">{{item.type_name}}</view>
+    </scroll-view>
+    <!-- loading控件 -->
+    <block wx:if="{{loading}}">
+      <view class="loading" style="height: {{sHeight}}px;background-color: rgba(228, 228, 228, 0.5);">
+        <w-loading msg="{{tips}}" />
+      </view>
+    </block>
+    <block wx:else>
+      <!-- 视频展示区 -->
+      <swiper style="height: {{sHeight}}px;" current="{{currentActiveTab}}" bindchange="changePage" class="m-swiper" duration="{{duration}}" easing-function="easeInOutCubic">
+        <swiper-item wx:for="{{tabList}}" wx:key="unique">
+          <scroll-view class="video-scroll" type="custom" scroll-y="true" enhanced show-scrollbar="false" bindscrolltolower="loadMore" lower-threshold="10">
+            <block wx:if="{{!videoList.length}}">
+              <!-- 空数据 -->
+              <view class="empty" style="height: {{sHeight}}px;">
+                <image src="/static/images/empty.png" mode="aspectFit" />
+                暂无数据
+              </view>
+            </block>
+            <block wx:else>
+              <grid-view type="aligned" cross-axis-count="{{crossAxisCount}}" main-axis-gap="{{mainAxisGap}}" cross-axis-gap="{{crossAxisGap}}">
+                <view class="video-item" wx:for="{{videoList}}" wx:key="unique" bind:tap="navToPlay" data-id="{{item.vod_id}}">
+                  <view class="remarks">{{item.vod_remarks?item.vod_remarks:'HD'}}</view>
+                  <image-loader class="video-img" src='{{item.vod_pic}}' placeholder="{{imgPlaceHolder}}" error="{{imgError}}" mode="{{mode}}" data-index="{{index}}" bind:success="bindSuccess" bind:fail="bindFail"></image-loader>
+                  <text class="vod-name">{{item.vod_name}}</text>
+                </view>
+              </grid-view>
+              <view class='data-loading' hidden='{{hidden}}'>
+                数据加载中, 请稍后...
+              </view>
+            </block>
+          </scroll-view>
+        </swiper-item>
+      </swiper>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+/* components/pop-menu.wxss */
+.pop-menu {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  /* background-color: rgba(51, 199, 38, 0.842); */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* margin-right: 10rpx; */
+}
+
+.menu-content {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1rpx solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.menu-item {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+.menu-item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}

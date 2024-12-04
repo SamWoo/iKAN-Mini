@@ -1,0 +1,5 @@
+<!--components/image-loader/image-loader.wxml-->
+<view class="image-loader">
+ <image wx:if="{{!loadFinish && placeholder}}" class="image-loader__pic" style="border-radius:{{radius}};" src="{{placeholder}}" mode="{{mode}}" />
+  <image class="image-loader__pic" style="border-radius:{{radius}};" src="{{src}}" lazy-load="{{lazyload}}" mode="{{mode}}" bindload="_loadSuccess" binderror="_loadFail" />
+</view>

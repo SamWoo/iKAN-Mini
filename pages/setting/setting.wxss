@@ -1,0 +1,14 @@
+/* pages/setting/setting.wxss */
+
+.color-view {
+  width: 100%;
+  height: 80rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+
+}

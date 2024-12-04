@@ -1,0 +1,42 @@
+<!--pages/resource/resource.wxml-->
+<view class="container">
+  <navigation-bar class="nav-bar" title="{{title}}" color="#fff" background="{{navBg}}" back="{{true}}"></navigation-bar>
+  <view class="main">
+    <scroll-view style="height:{{height}}px" scroll-y show-scrollbar="{{false}}">
+      <view class="page-section">
+        <view class="">
+          <radio-group bindchange="radioChange">
+            <label class="radio-item" wx:for="{{items}}" wx:key="{{item.value}}">
+              <view>
+                <radio color="{{navBg}}" value="{{item.url}}" checked="{{item.checked}}" />
+              </view>
+              <view class="radio-value">{{item.name}}</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 清空资源记录 -->
+    <view class="fixed-float-btn del-btn" style="background-color: #fff;" bind:tap="delAll">
+      <view class=" iconfont icon-delete" style="font-size: 56rpx;color: {{navBg}};"></view>
+    </view>
+    <view class="fixed-float-btn add-btn" style="background-color: {{navBg}};" bind:tap="showChoice">
+      +
+    </view>
+  </view>
+</view>
+
+<!-- modal -->
+<modal show="{{showModal}}" height="25%" style="padding-top: 0rpx;" bindcancel="modalCancel" bindconfirm="modalConfirm">
+  <view class="modal-content">
+    <view class="pop-title">新增资源</view>
+    <view class="line">
+      <label class="label">名称：</label>
+      <input class="line-input" placeholder="随意命名" bindinput="nameInput" value="{{name}}" auto-focus />
+    </view>
+    <view class="line">
+      <label class="label">网址：</label>
+      <input class="line-input" type="url" placeholder="https://xxx" bindinput="addressInput" value="{{address}}" />
+    </view>
+  </view>
+</modal>

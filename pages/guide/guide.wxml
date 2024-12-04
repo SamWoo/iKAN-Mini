@@ -1,0 +1,14 @@
+<!--pages/guide/guide.wxml-->
+<view class="container">
+  <navigation-bar class="nav-bar" title="{{title}}" color="#fff" background="{{navBg}}" back></navigation-bar>
+  <block wx:if="{{loading}}">
+    <view class="loading" style="height: {{height}}px;background-color: rgba(228, 228, 228, 0.5);">
+      <w-loading msg="{{tips}}" />
+    </view>
+  </block>
+  <block wx:else>
+    <scroll-view style="height:{{height}}px" scroll-y>
+      <towxml nodes="{{article}}" />
+    </scroll-view>
+  </block>
+</view>

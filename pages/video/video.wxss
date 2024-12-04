@@ -1,0 +1,243 @@
+/* pages/video/video.wxss */
+.play-video {
+  width: 100%;
+  height: 450rpx;
+  display: block;
+  /* 解决video组件默认边距问题 */
+  /* background-color: aqua; */
+}
+
+.warn {
+  height: 48rpx;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 48rpx;
+  /* margin-top: -10rpx; */
+  /* border-radius: 12rpx; */
+  padding-left: 16rpx;
+  font-weight: bold;
+}
+
+.warn image {
+  width: 56rpx;
+  height: 48rpx;
+}
+
+@keyframes kf-marque-animation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  width: 100%;
+  height: 48rpx;
+  margin-right: 32rpx;
+  margin-left: 12rpx;
+  line-height: 48rpx;
+  background: transparent;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  position: relative;
+  font-size: 28rpx;
+}
+
+.marquee .content {
+  display: inline-block;
+  position: relative;
+  padding-right: 0px;
+  animation: kf-marque-animation 30s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee .content text {
+  color: red;
+}
+
+.vod-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 12rpx;
+  background-color: #fff;
+  margin: 10rpx 0;
+  justify-content: space-between;
+  box-shadow: 0rpx 0rpx 8rpx rgba(0, 0, 0, 0.3);
+}
+
+.vod-name image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 48rpx;
+}
+
+.box {
+  flex-direction: column;
+  border-radius: 12rpx;
+  background-color: #fff;
+  padding: 16rpx;
+  margin: 12rpx 0;
+}
+
+.box-shadow {
+  box-shadow: 4rpx 0rpx 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.sub-title {
+  font-size: 26rpx;
+}
+
+.icon {
+  font-size: 80rpx;
+  margin-right: 20rpx;
+}
+
+.diver {
+  width: 96rpx;
+  margin-top: 12rpx;
+  margin-bottom: 12rpx;
+  border-bottom: 6rpx solid var(--themeColor--);
+}
+
+.content {
+  padding-bottom: 12rpx;
+  font-size: 26rpx;
+  display: flex;
+  /* color: #333131; */
+}
+
+.content text {
+  white-space: nowrap;
+  /* 不换行 */
+  font-weight: inherit;
+  color: gray;
+}
+
+.anthologies {
+  height: 80rpx;
+  display: inline-block;
+  /* background-color: rgb(210, 212, 77); */
+}
+
+.anth-item {
+  display: flex;
+  height: 72rpx;
+  font-size: 26rpx;
+  margin-right: 8rpx;
+  /* padding:8rpx; */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgb(114, 113, 113);
+  background-color: #e6e7e7;
+}
+
+.active {
+  color: #fff;
+  background-color: var(--themeColor--);
+  /* border: 1rpx solid var(--themeColor); */
+}
+
+.button-cover {
+  position: absolute;
+  top: 60%;
+  /* bottom: 0; */
+  right: 0;
+  transform: translate(-50%);
+  /* background-color: rgb(39, 161, 59); */
+}
+
+.anthologies-box {
+  width: 30%;
+  height: 100vh;
+  position: absolute;
+  padding: 8rpx;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  /* border-left:1rpx solid rgb(214, 214, 214); */
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.speed-menu {
+  width: 100px;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #d41e1e;
+  /* 背景颜色，方便观察位置 */
+}
+
+.anth-title {
+  display: flex;
+  height: 24rpx;
+  padding: 4rpx 4rpx;
+  align-items: center;
+  font-size: 16rpx;
+  color: white;
+  border-bottom: 1rpx solid rgb(195, 196, 195);
+  /* background-color: blueviolet; */
+}
+
+.list-item {
+  display: inline-flex;
+  margin: 4rpx;
+  padding: 4rpx;
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+  border-radius: 4rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgb(114, 113, 113);
+  background-color: #e6e7e7;
+}
+
+.item-horizontal {
+  width: 26%;
+  height: 24rpx;
+  font-size: 14rpx;
+}
+
+.item-vertical {
+  width: 45%;
+  height: 40rpx;
+  font-size: 24rpx;
+}
+
+.selected {
+  color: #fff;
+  background-color: green;
+}
+
+.icon-anthologies,
+.icon-speed {
+  /* font-size: 32rpx; */
+  color: rgba(216, 215, 215, 0.8);
+}
+
+.icon-close {
+  position: absolute;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: white;
+}

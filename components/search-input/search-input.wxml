@@ -1,0 +1,7 @@
+<!--components/searchInput.wxml-->
+<view class="search-input">
+  <navigator url="/pages/search/search" class="iconfont icon-search" open-type="navigate">
+    <icon class="searchicon" type='search'></icon>
+    <text style="font-size: 30rpx;color: #969595;">搜索您感兴趣的</text>
+  </navigator>
+</view>

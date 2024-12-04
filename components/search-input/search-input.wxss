@@ -1,0 +1,23 @@
+/* components/searchInput.wxss */
+.search-input {
+  height: 80rpx;
+  padding: 10rpx 0;
+}
+
+.search-input .searchicon {
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  float: left;
+  size: 24rpx;
+}
+
+.search-input .icon-search {
+  height: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: #fff;
+  border-radius: 40rpx;
+  border: 1rpx solid rgb(191, 192, 191);
+  color: #666;
+}
